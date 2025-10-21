@@ -35,5 +35,19 @@ class FinancialService extends BaseService implements FinancialInterface
         return $result['data'] ?? [];
     }
 
+    public function getAccountProfit(array $params, array $header = []): array
+    {
+        $response = $this->httpClient->post($this->driver, '/api/financial/shopSummary.json', $params);
+        $result   = json_decode($response->getBody()->getContents(), true);
+        $this->checkResponse($result);
+        return $result['data'] ?? [];
+    }
 
+    public function getSkuProfit(array $params, array $header = []): array
+    {
+        $response = $this->httpClient->post($this->driver, '/api/financial/sku.json', $params);
+        $result   = json_decode($response->getBody()->getContents(), true);
+        $this->checkResponse($result);
+        return $result['data'] ?? [];
+    }
 }

@@ -7,5 +7,6 @@ interface FinancialInterface
 {
     public function getSettlementDetail(array $params, array $header = []);
     public function getShippingSettlement(array $params, array $header = []);
-
+    public function getAccountProfit(array $params, array $header = []);
+    public function getSkuProfit(array $params, array $header = []);
 }
