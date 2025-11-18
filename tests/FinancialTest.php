@@ -36,5 +36,14 @@ class FinancialTest extends Base
 //        $this->assertNotEmpty($response);
 //    }
 
-
+    public function testGetAccountProfit()
+    {
+        $params = [
+            'begin' => "202501",
+            'end'   => "202510",
+            "currency" => 'CNY'
+        ];
+        $response = FinancialFacade::getAccountProfit($params);
+        $this->assertNotEmpty($response);
+    }
 }
